@@ -2,22 +2,18 @@
   <div>
     <h1>App 组件</h1>
 		
-		<!-- 导航列表 -->
-		<div class="navList">
-			<div class="navItem" @click="changeComName('Home')">
-				home导航
-			</div>
-			<div class="navItem" @click="changeComName('Cart')">
-				cart导航
-			</div>
-		</div>
+		<Home :getHomeData='getHomeData'></Home>
+		<!-- 直接在html标签上绑定的click等事件是原生事件 -->
+		<button @click="handleAppClick">app的测试按钮</button>
+		<button @click="handleAppClick($event)">app的测试按钮222</button>
+		<button @click="handleAppClick()">app的测试按钮333</button>
+		<br>
+		<br>
+		<br>
+		<br>
 		
-		<!-- 动态组件 -->
-		<!-- 动态组件在切换的时候会销毁之前的组件实例 -->
-		<!-- keep-alive缓存组件，可以保证组件实例不被销毁 -->
-		<keep-alive :exclude="['Cart']" >
-			<component :is="comName" :getHomeData='getHomeData'></component>
-		</keep-alive>
+		<!-- 在组件标签上绑定的事件是自定义事件，该事件会绑定对应组件的实例对象身上， click是自己定义的事件， 浏览器不会主动去响应，需要我们自己触发 -->
+		<Cart @myClick='handleCartClick'></Cart>
   </div>
 </template>
 
@@ -28,26 +24,20 @@
 		components: {
 			Home, Cart
 		},
-		data(){
-			return {
-				comName: 'Home'
-			}
-		},
-		methods: {
-			changeComName(comName){
-				this.comName = comName
+		methods:{
+			getHomeData(data){
+				console.log('子组件传递给父组件的数据： ', data)
 			},
-			getHomeData(homeData){
-				console.log('子组件home传递的数据： ', homeData);
+			handleAppClick(event){
+				console.log('app button绑定的click点击原生事件')
+				console.log(event)
+			},
+			
+			// 自定义事件
+			handleCartClick(data){
+				console.log('cart组件绑定自定义的click事件')
+				console.log(data)
 			}
-		},
-		errorCaptured(errorObj, errorVM, errorMsg) {
-			console.log('------------ errorCaptured 捕获子孙组件的错误 ------------')
-			console.log(errorObj.message)
-			console.log(errorObj, errorVM, errorMsg)
-			// errorVM === 错误组件实例对象 === Home组件实例
-			errorVM.getHomeData(errorVM.msg)
-			return false // 阻止错误继续向上传播 默认解决了错误
 		}
   }
 </script>

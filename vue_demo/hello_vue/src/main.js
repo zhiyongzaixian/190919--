@@ -8,6 +8,9 @@ Vue.config.errorHandler = (errorObj, errorVM, errorMsg) => {
 	console.log(errorObj, errorVM, errorMsg)
 }
 
+
+Vue.prototype.$eventBus = new Vue() 
+
 const vm = new Vue({
   render: h => h(App),
 }).$mount('#app')
