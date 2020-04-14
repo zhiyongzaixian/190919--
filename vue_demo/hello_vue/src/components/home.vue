@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h2>home组件</h2>
-		<p>params传参内容: {{$route.params.id}}</p>
+		<p>params传参内容: {{$route.params.id}} --- {{$route.params.xxx}}</p>
 	</div>
 </template>
 

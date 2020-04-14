@@ -2,8 +2,15 @@
   <div>
     <h1>App 组件</h1>
 		<!-- 组件标签 -->
-		<router-link to='/home/123'>home链接 params传参</router-link> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<router-link to='/cart?a=1&b=2'>cart链接 query传参</router-link>&nbsp;&nbsp;
+		<!-- params + name -->
+		<!-- <router-link :to='{name: "Home", params: {id: 123, xxx: "abc"}}'>home链接 params传参</router-link> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+		
+		<!-- params + path 不能使用 -->
+		<router-link :to='{path: "/home", params: {id: 123, xxx: "abc"}}'>home链接 params传参</router-link> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<!-- query  +  path -->
+		<!-- <router-link :to='{path: "/cart", query: {a: 123, b: "abc"}}'>cart链接 query传参</router-link>&nbsp;&nbsp; -->
+		<router-link :to='{name: "Cart", query: {a: 123, b: "abc"}}'>cart链接 query传参</router-link>&nbsp;&nbsp;
+		<!-- query + name -->
 		<router-link to='/personal'>personal链接 meta传参</router-link>
 		<br>
 		<br>
