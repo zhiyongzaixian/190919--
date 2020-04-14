@@ -1,7 +1,17 @@
 <template>
 	<div>
 		<h2>home组件</h2>
-		<p>params传参内容: {{$route.params.id}}</p>
+		
+		<!-- 安装插槽 -->
+		<slot name="topSlot">
+			
+		</slot>
+		<p>-----------------</p>
+		<slot name="bottomSlot" :person='person'>
+			
+		</slot>
+		
+		<slot>我是插槽的默认内容: 后备内容 --- {{person.firstName}}</slot>
 	</div>
 </template>
 

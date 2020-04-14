@@ -1,7 +1,7 @@
 <template>
 	<div id="cartContainer">
 		<h2>cart组件</h2>
-		<p>query请求参数： {{$route.query.a}} --- {{$route.query.b}}</p>
+		
 	</div>
 </template>
 
