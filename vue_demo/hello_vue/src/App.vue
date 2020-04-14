@@ -2,18 +2,31 @@
   <div>
     <h1>App 组件</h1>
 		
-		<Home :getHomeData='getHomeData'></Home>
-		<!-- 直接在html标签上绑定的click等事件是原生事件 -->
-		<button @click="handleAppClick">app的测试按钮</button>
-		<button @click="handleAppClick($event)">app的测试按钮222</button>
-		<button @click="handleAppClick()">app的测试按钮333</button>
-		<br>
-		<br>
-		<br>
-		<br>
+		<Home >
+			<!-- 当需要传递的数据是标签数据的时候考虑使用slot -->
+			<!-- 具名插槽的全写方式： template + v-slot -->
+			<!-- <template v-slot:topSlot>
+				<p>我是往上边插槽注入的内容</p>
+			</template>
+			<template v-slot:bottomSlot>
+				<p>我是往下边插槽注入的内容</p>
+			</template> -->
+			
+			<!-- 具名插槽的简写方式 -->
+			<template #topSlot>
+				<p>我是往上边插槽注入的内容</p>
+			</template>
+			<template v-slot:bottomSlot='{person}' >
+				<p>我是往下边插槽注入的内容 --- {{person.lastName}}</p>
+			</template>
+		</Home>
 		
-		<!-- 在组件标签上绑定的事件是自定义事件，该事件会绑定对应组件的实例对象身上， click是自己定义的事件， 浏览器不会主动去响应，需要我们自己触发 -->
-		<Cart @myClick='handleCartClick'></Cart>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<Cart ></Cart>
   </div>
 </template>
 
@@ -24,21 +37,6 @@
 		components: {
 			Home, Cart
 		},
-		methods:{
-			getHomeData(data){
-				console.log('子组件传递给父组件的数据： ', data)
-			},
-			handleAppClick(event){
-				console.log('app button绑定的click点击原生事件')
-				console.log(event)
-			},
-			
-			// 自定义事件
-			handleCartClick(data){
-				console.log('cart组件绑定自定义的click事件')
-				console.log(data)
-			}
-		}
   }
 </script>
 

@@ -1,6 +1,17 @@
 <template>
 	<div>
 		<h2>home组件</h2>
+		
+		<!-- 安装插槽 -->
+		<slot name="topSlot">
+			
+		</slot>
+		<p>-----------------</p>
+		<slot name="bottomSlot" :person='person'>
+			
+		</slot>
+		
+		<slot>我是插槽的默认内容: 后备内容 --- {{person.firstName}}</slot>
 	</div>
 </template>
 
@@ -8,18 +19,14 @@
 	export default {
 		data(){
 			return {
-				msg:'子组件home的数据'
+				msg:'子组件home的数据',
+				person: {
+					firstName: 'kobe',
+					lastName: 'bryant'
+				}
 			}
 		},
-		props:  ['getHomeData'],
-		mounted(){
-			this.getHomeData(this.msg)
-			// 页面下一次重新渲染之后
-			this.$nextTick(() => {
-				// 事件总线
-				this.$eventBus.$emit('eventBusClick');
-			})
-		}
+		
 	}
 </script>
 
