@@ -5,6 +5,7 @@ const postcss = px2rem({
 })
 module.exports = {
   lintOnSave: false, // 关闭EsLint语法检查
+	productionSourceMap: false // 生产环境不生成map文件
   // css: {
   //   loaderOptions: {
   //     postcss: {

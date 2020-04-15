@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h2>personal组件</h2>
-		<p>props导入的数据: {{myPropsValue}}</p>
+		<p>props导入的数据: {{msg}}</p>
 	</div>
 </template>
 

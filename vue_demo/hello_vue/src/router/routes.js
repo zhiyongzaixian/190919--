@@ -1,6 +1,12 @@
-import Home from '../components/home.vue';
-import Cart from '../components/cart.vue';
-import Personal from '../components/personal.vue';
+// 静态引入 import xxx from 'xx'
+// import Home from '../components/home.vue';
+// import Cart from '../components/cart.vue';
+// import Personal from '../components/personal.vue';
+
+// 动态引入，路由组件懒加载
+const Home = () => import('../components/home.vue')
+const Cart = () => import('../components/cart.vue')
+const Personal = () => import('../components/personal.vue')
 
 
 export default [
@@ -21,6 +27,7 @@ export default [
 	{
 		path: '/personal',
 		component: Personal,
+		name: 'Person',
 		meta: {
 			isShowFooter: true
 		},
