@@ -8,7 +8,8 @@ export default [
 	{
 		path: '/home/:id',
 		component: Home,
-		name: 'Home'
+		name: 'Home',
+		props: true // 允许params参数导入props中
 	},
 	// query传参： 注册路由的时候不需要做任何处理
 	{
@@ -22,7 +23,12 @@ export default [
 		component: Personal,
 		meta: {
 			isShowFooter: true
-		}
+		},
+		// props对象的形式通常用于导入静态数据
+		// props: {
+		// 	myPropsValue:  '这是我通过注册路由的时候导入的props数据'
+		// }
+		props: route => ({msg: '静态数据', isShowFooter: route.meta.isShowFooter, path: route.path})
 	},
 	{
 		path: '/',
