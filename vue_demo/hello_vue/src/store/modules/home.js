@@ -22,16 +22,26 @@ const actions = {
 		let arr  = [1,2,3] // 请求模拟数据
 		// 触发mutation，同时将异步数据交给mutation
 		commit('changeHomeArr', arr)
+		setTimeout(() => {
+			let arr2  = [4,5,6]
+			commit('changeHomeArr', arr2)
+		}, 2000)
 	}
 }
 
 
-
+const getters = {
+	//  等同于Vue中计算属性
+	newArr(state){
+		return state.homeArr.map(item => item + 10)
+	}
+}
 
 
 // 向外暴露当前模块的store对象
 export default {
 	state,
 	mutations,
-	actions
+	actions,
+	getters
 }
