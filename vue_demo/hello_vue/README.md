@@ -91,7 +91,17 @@
 	4. 适用场景: 解耦 + params + 关于路由信息 ---> 导入组件内部props对象
 
 
-
+## 5. Vuex
+### 1. 核心概念
+1. store对象
+2. state
+3. mutations
+	1. 本质是函数
+	2. 只能同步修改状态数据
+4. actions
+5. getters
+6. dispatch
+7. commit
 
 
 
