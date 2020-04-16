@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery</title>
+
+</head>
+<body>
+
+
+<!--
+ jQuery：
+  1. 特点:
+    - 函数式编程
+    - 隐式迭代
+    - 读写二合一
+    - 链式调用
+    - 完善的ajax封装
+  2. 核心: $ || jQuery
+    - 对象： 方法
+      - $.ajax ()
+      - $.get()
+      - $.each()
+    - 函数: $(参数)
+      - function
+      - 选择器字符串
+      - HTML字符串
+      - DOM code
+
+
+-->
+
+<div id="box">
+  <p>111111111</p>
+  <p>222222222</p>
+  <p>333333333</p>
+</div>
+
+
+<script type="text/javascript" src="./lib/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+  window.onload = function () {
+    console.log('window.onload()'); // 页面加载完毕，包含页面中的所有资源(文档， 图片。。。。)
+  }
+
+
+  $(function () {
+    console.log('document.ready()');// 文档加载完毕
+
+    $('#box').click(function () {
+      // console.log(this); // this是原生js对象
+      // console.log(this.find('p'));
+      // console.log($(this).find('p'));
+      // 链式调用： 每一个jQuery对象的方法返回值是jQuery对象
+      // 隐式迭代： 底层自动循环遍历目标数组
+      // $(this).find('p').css('background', 'red'); // 读写二合一，看传入的参数个数，1：读，2：写
+
+      // append VS after
+      // $(this).append('<p>我是新添加的p标签</p>');
+      // $(this).after('<p>我是新添加的p标签</p>');
+
+      // empty  VS remove
+      // $(this).empty() // 清空内部的内容，保留自身
+      $(this).remove() // 移除自身及自身内部的内容
+
+    });
+  });
+</script>
+</body>
+</html>

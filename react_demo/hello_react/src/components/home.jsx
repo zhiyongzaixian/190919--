@@ -11,7 +11,7 @@ class Home extends React.Component {
   componentDidMount(){
     this.props.getHomeData(this.state.msg);
     // React脚手架中子组件不能直接修改父组件通过props传递的数据，会报错
-    this.props.num = 2;
+    // this.props.num = 2;
   }
   
   render () {
