@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Cart extends React.Component {
+class HomeChild extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -8,10 +8,11 @@ class Cart extends React.Component {
   render () {
     return (
       <div>
-        <h2>Cart 组件</h2>
+        <h2>HomeChild 组件</h2>
       </div>
     );
   }
 }
 
-export default Cart;
+
+export default HomeChild;
